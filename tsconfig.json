@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "module": "es2022",
+        "moduleResolution": "node",
+        "target": "ESNext",
+        "allowJs": true,
+        "baseUrl": "."
+    },
+    "files": ["src/index.ts"]
+}
