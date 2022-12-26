@@ -30,10 +30,7 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html',
-        }),
-        new webpack.DefinePlugin({
-            PROVIDER_TYPE: JSON.stringify(process.env.PROVIDER_TYPE),
-        }),
+        })
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
