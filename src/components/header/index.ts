@@ -5,6 +5,13 @@ type ToggleProps = {
     onToggleHandle: Function
 }
 
+const pageWrapperWidth = 840
+const SHOW_AS = {
+    BASE: 'Show as',
+    GRID: 'an awesome grid',
+    LIST: 'list'
+}
+
 const getToggle = ({ onToggleHandle }: ToggleProps): HTMLElement => {
     const toggleCheckbox = getDOM({
         element: 'input',
@@ -12,7 +19,7 @@ const getToggle = ({ onToggleHandle }: ToggleProps): HTMLElement => {
         checked: 'checked',
         class: 'toggle__input',
         id: 'toggle__input',
-    })
+    }) as HTMLInputElement
 
     const toggleText = getDOM({
         class: 'toggle__label',
@@ -20,18 +27,21 @@ const getToggle = ({ onToggleHandle }: ToggleProps): HTMLElement => {
         for: 'toggle__input',
     })
 
-    toggleText.innerHTML = `Show as grid`
+    toggleText.innerHTML = `${SHOW_AS.BASE} ${SHOW_AS.GRID}`
 
     const toggle = getDOM({
         class: 'toggle',
         children: [toggleCheckbox, toggleText],
     })
 
-    toggle.addEventListener(
-        'click',
-        (event) => onToggleHandle(toggle, event),
-        false
-    )
+    toggleCheckbox.addEventListener('change', () => {
+        const showType = toggleCheckbox.checked 
+            ? SHOW_AS.GRID
+            : SHOW_AS.LIST
+        toggleText.innerHTML = `${SHOW_AS.BASE} ${showType}`
+
+        onToggleHandle()
+    })
 
     return toggle
 }

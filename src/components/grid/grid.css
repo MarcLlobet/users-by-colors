@@ -1,13 +1,13 @@
 .grid {
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     justify-content: center;
     width: 100%;
 }
 
 .grid.grid--list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
 }
 
 @media (min-width: 840px) {
@@ -23,6 +23,9 @@
 
 .grid__title {
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .grid__title + .grid__list {

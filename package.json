@@ -11,11 +11,15 @@
         "serve:bst": "PROVIDER_TYPE=BST webpack serve",
         "test": "jest",
         "prettier": "prettier --write .",
-        "cy:open": "cypress run"
+        "cy:run": "cypress run",
+        "cy:open": "cypress open"
     },
     "jest": {
         "testEnvironment": "node"
     },
+    "browserslist": [
+        "last 2 versions"
+    ],
     "devDependencies": {
         "@types/jest": "^29.2.4",
         "autoprefixer": "^10.4.13",

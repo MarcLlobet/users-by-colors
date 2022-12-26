@@ -5,25 +5,19 @@ import { AllHostsList } from '../../types'
 import './page-wrapper.css'
 
 type getPageWrapperProps = {
-    allTopApps: any // AllHostsList[]
+    allTopApps: AllHostsList[]
 }
 export const getPageWrapper = ({
     allTopApps,
 }: getPageWrapperProps): HTMLElement => {
     const grid = getGrid(allTopApps)
 
-    const onToggleHandle = (element: HTMLElement, event: MouseEvent): void => {
-        event.preventDefault()
-
-        const [input, label]: any = element.children
-        input.checked = !input.checked
-        label.innerHTML = `Show as ${input.checked ? 'grid' : 'list'}`
-
+    const onToggleHandle = (): void => {
         grid.classList.toggle('grid--list')
     }
 
     const title = 'Apps by Host'
-    const author = 'Marc Llobet'
+    const author = 'by Marc Llobet'
 
     const header = getHeader({
         title,

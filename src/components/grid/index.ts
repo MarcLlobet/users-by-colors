@@ -26,13 +26,16 @@ const getAppList = (apps: App[]) =>
             alert(JSON.stringify(item))
         }
 
-        listItem.addEventListener('click', itemClickHandle, false)
+        listItem.addEventListener('click', itemClickHandle, true)
 
         return listItem
     })
 
 export const getGrid = (hostList: AllHostsList[]): HTMLElement => {
-    const grid = getDOM({ class: 'grid loading' })
+    const grid = getDOM({ class: 'grid loading grid--list' })
+
+    setTimeout(() => grid.classList.remove('loading'), 1500)
+
     hostList.forEach(([hostName, apps]: AllHostsList): void => {
         const listItems = getAppList(apps)
 
@@ -55,7 +58,6 @@ export const getGrid = (hostList: AllHostsList[]): HTMLElement => {
             children: [title, list],
         })
 
-        setTimeout(() => grid.classList.remove('loading'), 1500)
         grid.appendChild(section)
     })
 
