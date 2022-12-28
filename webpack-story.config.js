@@ -1,36 +1,20 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
-const isProduction = process.env.NODE_ENV == 'production'
-
-const stylesHandler = isProduction
-    ? MiniCssExtractPlugin.loader
-    : 'style-loader'
-
-const hostAppData = require('./host-app-data.json')
 
 const config = {
-    entry: './src/index.ts',
+    entry: './src/components/design-system.ts',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'design-system'),
     },
+    mode: 'development',
     devServer: {
         open: true,
-        host: 'localhost',
-        onBeforeSetupMiddleware: function (devServer) {
-            devServer.app.get('/host-app-data', function (req, res) {
-                res.json(hostAppData)
-            })
-        },
+        host: 'localhost'
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html',
-        }),
+        })
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -44,7 +28,7 @@ const config = {
             },
             {
                 test: /\.css$/i,
-                use: [stylesHandler, 'css-loader', 'postcss-loader'],
+                use: ['style-loader', 'css-loader', 'postcss-loader'],
             },
             {
                 test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -60,7 +44,7 @@ const config = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.story.js', '.story.ts', '.ts', '.js'],
     },
     experiments: {
         topLevelAwait: true,
@@ -68,12 +52,5 @@ const config = {
 }
 
 module.exports = () => {
-    if (isProduction) {
-        config.mode = 'production'
-
-        config.plugins.push(new MiniCssExtractPlugin())
-    } else {
-        config.mode = 'development'
-    }
     return config
 }

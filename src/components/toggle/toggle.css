@@ -1,0 +1,51 @@
+.toggle {
+  flex-shrink: 0;
+  justify-self: flex-end;
+  text-align: right;
+  display: block;
+  line-height: 25px;
+}
+
+@media (max-width: 840px) {
+  .toggle {
+      display:none;
+  }
+}
+
+.toggle__input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid var(--border-items-color);
+  margin: 0;
+  margin-top: 4px;
+  float: left;
+}
+
+.toggle__input:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  border-radius: 2px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.toggle__input:checked:before {
+  background-color: var(--highlight-items-color);
+}
+
+.toggle__label {
+  float: left;
+  line-height: 21px;
+}
+
+.toggle__input + .toggle__label {
+  padding-left: 10px;
+}

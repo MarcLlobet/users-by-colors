@@ -1,4 +1,5 @@
 import { getDOM } from '../../helpers/dom-helper'
+import { getCard } from '../card' 
 import { App, AllHostsList } from '../../types'
 import './grid.css'
 
@@ -17,7 +18,7 @@ const getAppList = (apps: App[]) =>
         listName.innerHTML = `${item.name}`
 
         const listItem = getDOM({
-            element: 'li',
+            element: 'div',
             class: 'grid__list-item',
             children: [listApdex, listName],
         })
@@ -32,33 +33,17 @@ const getAppList = (apps: App[]) =>
     })
 
 export const getGrid = (hostList: AllHostsList[]): HTMLElement => {
-    const grid = getDOM({ class: 'grid loading grid--list' })
-
-    setTimeout(() => grid.classList.remove('loading'), 1500)
+    const grid = getDOM({ class: 'grid grid--list' })
 
     hostList.forEach(([hostName, apps]: AllHostsList): void => {
         const listItems = getAppList(apps)
 
-        const list = getDOM({
-            element: 'ol',
-            class: 'grid__list',
-            children: listItems,
+        const card = getCard({
+            title: hostName, 
+            content: listItems
         })
 
-        const title = getDOM({
-            element: 'h3',
-            class: 'grid__title',
-        })
-
-        title.innerHTML = hostName
-
-        const section = getDOM({
-            element: 'section',
-            class: 'grid__section',
-            children: [title, list],
-        })
-
-        grid.appendChild(section)
+        grid.appendChild(card)
     })
 
     return grid

@@ -4,10 +4,13 @@
     grid-template-columns: 100%;
     justify-content: center;
     width: 100%;
+    max-width: 840px;
+    margin: auto;
 }
 
 .grid.grid--list {
     grid-template-columns: 100%;
+    max-width: unset;
 }
 
 @media (min-width: 840px) {
@@ -16,37 +19,11 @@
     }
 }
 
-.grid__section {
-    background-color: #fff;
-    padding: 30px;
-}
-
-.grid__title {
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.grid__title + .grid__list {
-    padding-top: 23px;
-}
-
-.grid__list {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    color: #4a5a5a;
-}
-
 .grid__list-item {
     display: flex;
     flex-flow: row;
     gap: 10px;
-}
-
-.grid__list-item + .grid__list-item {
-    margin-top: 10px;
+    color: var(--highlight-text-color);
 }
 
 .grid__list-apdex {
@@ -54,42 +31,11 @@
     font-weight: bold;
     opacity: 0.62;
 }
+
 .grid__list-name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 20px; /* preventing overflow to crop letters */
+    line-height: 20px;
 }
 
-/* Skeleton part*/
-
-@keyframes gradient-animation {
-    from {
-        background-position-x: 0;
-    }
-    to {
-        background-position-x: 100%;
-    }
-}
-
-.grid.loading .grid__title,
-.grid.loading .grid__list-item {
-    color: transparent;
-    border-radius: 10px;
-    animation-duration: 2s;
-    width: 100%;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: gradient-animation;
-    background: linear-gradient(
-        125deg,
-        #eee,
-        #eee 30%,
-        #ccc 45%,
-        #ccc 55%,
-        #eee 70%,
-        #eee
-    );
-    background-size: 300% 100%;
-    background-position-x: 0;
-}

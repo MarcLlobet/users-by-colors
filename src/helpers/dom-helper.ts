@@ -1,11 +1,13 @@
 export type buildDomProps = {
     element?: string
     class?: string
+    style?: string
     type?: string
-    checked?: string
+    checked?: 'true'
     id?: string
     for?: string
-    children?: HTMLElement | HTMLElement[]
+    name?: string
+    children?: HTMLElement | HTMLElement[] | Node
 }
 export const getDOM = ({
     element,

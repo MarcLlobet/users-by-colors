@@ -1,0 +1,36 @@
+:root{
+
+    /* COLORS */
+    --black-color: black;
+    --paper-color: #f5f5f5;
+    --cadet-blue: #4a5a5a;
+    --green-yellow: #7ed421;
+    --light-grey: #eee;
+    --dark-grey: #ccc;
+    --white: white;
+    --black: black;
+    --almost-black: #262628;
+    --deep-sky-blue: #15b0ff;
+    
+    /* LIGHT THEME */
+    --background-color: var(--paper-color);
+    --general-text-color: var(--black-color);
+    --highlight-text-color: var(--cadet-blue);
+    --highlight-items-color: var(--green-yellow);
+    --border-items-color: var(--dark-grey);
+    --skeleton-animation-1: var(--light-grey);
+    --skeleton-animation-2: var(--dark-grey);
+    --inner-background: var(--white);
+
+    /* SIZES */
+    --page-width: 840px
+}   
+
+body {
+    color: var(--general-text-color);
+    background-color: var(--background-color);
+    font-family: 'Helvetica-Neue', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0;
+}

@@ -1,0 +1,52 @@
+.card {
+  background-color: var(--inner-background);
+  padding: 30px;
+}
+
+.card__title {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__title + .card__content {
+  margin-top: 23px;
+}
+
+.card__content > * + *  {
+  margin-top: 10px;
+}
+
+/* Skeleton part*/
+
+@keyframes gradient-animation {
+  from {
+      background-position-x: 0;
+  }
+  to {
+      background-position-x: 100%;
+  }
+}
+
+.card--loading .card__title,
+.card--loading .card__content > * {
+    color: transparent;
+    border-radius: 10px;
+    animation-duration: 2s;
+    width: 100%;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: gradient-animation;
+    background: linear-gradient(
+        125deg,
+        var(--skeleton-animation-1),
+        var(--skeleton-animation-1) 30%,
+        var(--skeleton-animation-2) 45%,
+        var(--skeleton-animation-2) 55%,
+        var(--skeleton-animation-1) 70%,
+        var(--skeleton-animation-1)
+    );
+    background-size: 300% 100%;
+    background-position-x: 0;
+}

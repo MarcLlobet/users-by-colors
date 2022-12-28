@@ -1,10 +1,8 @@
 import Provider from './provider/index'
-import { getPageWrapper } from './components/page-wrapper/index'
-import './index.css'
-import 'helvatica-neue-lt/index.css'
+import { getApp } from './app/index'
 
 const allTopApps = Provider.getTopApps()
-const pageWrapper = getPageWrapper({ allTopApps })
+const pageWrapper = getApp({ allTopApps })
 
 const root = document.getElementById('root')
 root.appendChild(pageWrapper)

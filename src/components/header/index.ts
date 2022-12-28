@@ -1,51 +1,6 @@
 import { getDOM } from '../../helpers/dom-helper'
 import './header.css'
 
-type ToggleProps = {
-    onToggleHandle: Function
-}
-
-const pageWrapperWidth = 840
-const SHOW_AS = {
-    BASE: 'Show as',
-    GRID: 'an awesome grid',
-    LIST: 'list'
-}
-
-const getToggle = ({ onToggleHandle }: ToggleProps): HTMLElement => {
-    const toggleCheckbox = getDOM({
-        element: 'input',
-        type: 'checkbox',
-        checked: 'checked',
-        class: 'toggle__input',
-        id: 'toggle__input',
-    }) as HTMLInputElement
-
-    const toggleText = getDOM({
-        class: 'toggle__label',
-        element: 'label',
-        for: 'toggle__input',
-    })
-
-    toggleText.innerHTML = `${SHOW_AS.BASE} ${SHOW_AS.GRID}`
-
-    const toggle = getDOM({
-        class: 'toggle',
-        children: [toggleCheckbox, toggleText],
-    })
-
-    toggleCheckbox.addEventListener('change', () => {
-        const showType = toggleCheckbox.checked 
-            ? SHOW_AS.GRID
-            : SHOW_AS.LIST
-        toggleText.innerHTML = `${SHOW_AS.BASE} ${showType}`
-
-        onToggleHandle()
-    })
-
-    return toggle
-}
-
 type HeaderTextProps = {
     title: string
     author: string
@@ -67,20 +22,24 @@ export const getHeaderText = (props: HeaderTextProps): HTMLElement[] => {
     return [headerTitle, headerUser]
 }
 
-type HeaderProps = HeaderTextProps & ToggleProps
+type HeaderProps = HeaderTextProps & {
+    headerSideComponent?: HTMLElement
+}
 
 export const getHeader = ({
     title,
     author,
-    onToggleHandle,
+    headerSideComponent,
 }: HeaderProps): HTMLElement => {
     const headerText = getHeaderText({ title, author })
-    const headerToggle = getToggle({ onToggleHandle })
+
+    const children = headerText
+    if(headerSideComponent) children.push(headerSideComponent)
 
     const header = getDOM({
         element: 'header',
         class: 'header',
-        children: [...headerText, headerToggle],
+        children
     })
 
     return header

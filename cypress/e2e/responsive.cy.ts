@@ -1,5 +1,5 @@
 describe('Responsive', () => {
-  context('<=840 resolution', () => {
+  context(`<=840 resolution`, () => {
     beforeEach(() => {
       cy.viewport(840, 500)
     })
@@ -10,9 +10,9 @@ describe('Responsive', () => {
     })
   })
 
-  context('>840 resolution', () => {
+  context(`>840 resolution`, () => {
     beforeEach(() => {
-      cy.viewport(841, 500)
+      cy.viewport(840 + 1, 500)
     })
     
     it('is visible when viewport is wide ', () => {
