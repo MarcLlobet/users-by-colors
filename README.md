@@ -9,16 +9,19 @@ Unit tests: `yarn test`
 Integration tests: `yarn cy:run`
 Integration preview: `yarn cy:open`
 
-![Apps by hosts preview](readme-images/apps-by-hosts-preview.gif)
 *Preview of the final result*
+![Apps by hosts preview](readme-images/apps-by-hosts-preview.gif)
 
-![Design system preview](readme-images/design-system-preview.gif)
 *Preview of the design system*
+![Design system preview](readme-images/design-system-preview.gif)
+
 Yes! I created a design system myself to work with the components used in this app.
 
-![Dark theme icon](readme-images/dark-theme-icon.png)
 *Preview of the dark theme icon*
-I created the icon myself. Check the svg file, you will see it is quite understandable.
+<img src="readme-images/dark-theme-icon.png" width="150" height="150" />
+
+I created a dark theme mode and an icon myself. 
+Check the svg file, you will see it is quite understandable.
 # Apps by hosts
 This is an application showing the top apps in the ranking by each host.
 
@@ -97,8 +100,8 @@ I'm using
  - plain css, preventing extra complexity with preprocessors
 
 ## TODO
-CI development
-Increase tests coverage
-Add component testing
-Split design system from app completely
-Add accessibility tests
+ - CI development
+ - Increase tests coverage
+ - Add component testing
+ - Split design system from app completely
+ - Add accessibility tests
