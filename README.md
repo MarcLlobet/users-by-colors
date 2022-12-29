@@ -9,14 +9,14 @@ Unit tests: `yarn test`
 Integration tests: `yarn cy:run`
 Integration preview: `yarn cy:open`
 
-[Apps by hosts preview](readme-images/apps-by-hosts-preview.gif)
+![Apps by hosts preview](readme-images/apps-by-hosts-preview.gif)
 *Preview of the final result*
 
-[Design system preview](readme-images/design-system-preview.gif)
+![Design system preview](readme-images/design-system-preview.gif)
 *Preview of the design system*
 Yes! I created a design system myself to work with the components used in this app.
 
-[Dark theme icon](readme-images/dark-theme-icon.png)
+![Dark theme icon](readme-images/dark-theme-icon.png)
 *Preview of the dark theme icon*
 I created the icon myself. Check the svg file, you will see it is quite understandable.
 # Apps by hosts
@@ -95,7 +95,7 @@ I'm using
  - cypress for integration tests
  - jest for unit tests
  - plain css, preventing extra complexity with preprocessors
- 
+
 ## TODO
 CI development
 Increase tests coverage
