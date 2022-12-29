@@ -1,5 +1,5 @@
 import { getDOM } from '../../helpers/dom-helper'
-import { getCard } from '../card' 
+import { getCard } from '../card'
 import { App, AllHostsList } from '../../types'
 import './grid.css'
 
@@ -39,8 +39,8 @@ export const getGrid = (hostList: AllHostsList[]): HTMLElement => {
         const listItems = getAppList(apps)
 
         const card = getCard({
-            title: hostName, 
-            content: listItems
+            title: hostName,
+            content: listItems,
         })
 
         grid.appendChild(card)

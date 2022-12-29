@@ -1,40 +1,39 @@
 .dark-theme-icon {
-  width: 20px;
-  height: 20px;
-  fill: #e9e91d;
-  stroke: #e9e91d;
+    width: 20px;
+    height: 20px;
+    fill: #e9e91d;
+    stroke: #e9e91d;
 }
 
 body.dark-mode {
-  --background-color: var(--black);
-  --general-text-color: var(--deep-sky-blue);
-  --highlight-text-color: var(--white);
-  --highlight-items-color: var(--deep-sky-blue);
-  --border-items-color: var(--dark-grey);
-  --skeleton-animation-1: var(--cadet-blue);
-  --skeleton-animation-2: var(--black);
-  --inner-background: var(--almost-black);
+    --background-color: var(--black);
+    --general-text-color: var(--deep-sky-blue);
+    --highlight-text-color: var(--white);
+    --highlight-items-color: var(--deep-sky-blue);
+    --border-items-color: var(--dark-grey);
+    --skeleton-animation-1: var(--cadet-blue);
+    --skeleton-animation-2: var(--black);
+    --inner-background: var(--almost-black);
 }
 
 .nav__icon {
-  background-color: var(--inner-background);
-  border-radius: 50%;
-  padding:10px;
-  margin: 10px;
-  width: 30px;
-  height: 30px;
+    background-color: var(--inner-background);
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
 }
 
 .nav__icon > svg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
-.ui-toolkit{
-
-  width: 840px;
-  justify-content: flex-end;
-  display: flex;
-  margin: auto;
-  float: none;
+.ui-toolkit {
+    width: 840px;
+    justify-content: flex-end;
+    display: flex;
+    margin: auto;
+    float: none;
 }

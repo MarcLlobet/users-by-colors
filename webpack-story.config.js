@@ -9,12 +9,12 @@ const config = {
     mode: 'development',
     devServer: {
         open: true,
-        host: 'localhost'
+        host: 'localhost',
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html',
-        })
+        }),
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -36,7 +36,7 @@ const config = {
             },
             {
                 test: /\.svg$/,
-                use: 'svg-inline-loader'
+                use: 'svg-inline-loader',
             },
 
             // Add your rules for custom modules here

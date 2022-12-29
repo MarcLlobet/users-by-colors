@@ -14,20 +14,18 @@ type getAppProps = {
 const SHOW_AS = {
     BASE: 'Show as',
     GRID: 'an awesome grid',
-    LIST: 'list'
+    LIST: 'list',
 }
 
-const toggleLabels : [string, string] = [
+const toggleLabels: [string, string] = [
     `${SHOW_AS.BASE} ${SHOW_AS.GRID}`,
-    `${SHOW_AS.BASE} ${SHOW_AS.LIST}`
+    `${SHOW_AS.BASE} ${SHOW_AS.LIST}`,
 ]
 
 const title = 'Apps by Host'
 const author = 'by Marc Llobet'
 
-export const getApp = ({
-    allTopApps,
-}: getAppProps): HTMLElement => {
+export const getApp = ({ allTopApps }: getAppProps): HTMLElement => {
     const grid = getGrid(allTopApps)
 
     const onToggleHandle = (): void => {

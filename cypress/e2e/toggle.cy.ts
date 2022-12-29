@@ -14,7 +14,7 @@ describe('Toggle', () => {
         cy.visit('/')
         cy.get('.grid').should('have.class', 'grid--list')
     })
-    
+
     it('shows grid after click', () => {
         cy.visit('/')
         cy.get('.toggle').click()

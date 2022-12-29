@@ -34,12 +34,12 @@ export const getHeader = ({
     const headerText = getHeaderText({ title, author })
 
     const children = headerText
-    if(headerSideComponent) children.push(headerSideComponent)
+    if (headerSideComponent) children.push(headerSideComponent)
 
     const header = getDOM({
         element: 'header',
         class: 'header',
-        children
+        children,
     })
 
     return header

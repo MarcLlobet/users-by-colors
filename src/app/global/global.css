@@ -1,5 +1,4 @@
-:root{
-
+:root {
     /* COLORS */
     --black-color: black;
     --paper-color: #f5f5f5;
@@ -11,7 +10,7 @@
     --black: black;
     --almost-black: #262628;
     --deep-sky-blue: #15b0ff;
-    
+
     /* LIGHT THEME */
     --background-color: var(--paper-color);
     --general-text-color: var(--black-color);
@@ -23,8 +22,8 @@
     --inner-background: var(--white);
 
     /* SIZES */
-    --page-width: 840px
-}   
+    --page-width: 840px;
+}
 
 body {
     color: var(--general-text-color);

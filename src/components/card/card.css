@@ -1,32 +1,32 @@
 .card {
-  background-color: var(--inner-background);
-  padding: 30px;
+    background-color: var(--inner-background);
+    padding: 30px;
 }
 
 .card__title {
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card__title + .card__content {
-  margin-top: 23px;
+    margin-top: 23px;
 }
 
-.card__content > * + *  {
-  margin-top: 10px;
+.card__content > * + * {
+    margin-top: 10px;
 }
 
 /* Skeleton part*/
 
 @keyframes gradient-animation {
-  from {
-      background-position-x: 0;
-  }
-  to {
-      background-position-x: 100%;
-  }
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: 100%;
+    }
 }
 
 .card--loading .card__title,

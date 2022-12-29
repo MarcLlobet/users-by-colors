@@ -52,7 +52,7 @@ const config = {
             },
             {
                 test: /\.svg$/,
-                use: 'svg-inline-loader'
+                use: 'svg-inline-loader',
             },
 
             // Add your rules for custom modules here
