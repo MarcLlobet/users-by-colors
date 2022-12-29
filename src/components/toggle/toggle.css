@@ -4,6 +4,7 @@
     text-align: right;
     display: block;
     line-height: 25px;
+    cursor: pointer;
 }
 
 @media (max-width: 840px) {
@@ -22,6 +23,7 @@
     margin: 0;
     margin-top: 4px;
     float: left;
+    cursor: inherit;
 }
 
 .toggle__input:before {
@@ -44,6 +46,7 @@
 .toggle__label {
     float: left;
     line-height: 21px;
+    cursor: inherit;
 }
 
 .toggle__input + .toggle__label {
