@@ -18,6 +18,7 @@ Integration preview: `yarn cy:open`
 Yes! I created a design system myself to work with the components used in this app.
 
 *Preview of the dark theme icon*
+
 <img src="readme-images/dark-theme-icon.png" width="150" height="150" />
 
 I created a dark theme mode and an icon myself. 
