@@ -1,5 +1,8 @@
 # Users by colors
-This is an application showing the top users in the ranking by each color.
+We have a list of users with a list of favorite colors.
+Users also have a rank number from 0 to 100.
+We want to show all the colors with its users ordered by their rank.
+For more clarity, you can see user-colors-data.json.
 
 ## TLDR;
 ### Check it out
