@@ -1,88 +1,88 @@
-import { HostName, App, ProviderBluprint, AllHostsList } from '../types/index'
+import { User, Color, ProviderBluprint, AllColorsList } from '../types/index'
 
 import { hasKeysLeft } from '../helpers/custom'
 
-type AppsByHostMap = {
-    [host: HostName]: {
-        [apdex: string]: {
-            [appName: string]: App
+type UsersByColorMap = {
+    [color: Color]: {
+        [rank: string]: {
+            [userName: string]: User
         }
     }
 }
 
-class AppsByHost implements ProviderBluprint {
-    rawData: App[]
-    hosts: AppsByHostMap
+class UsersByColor implements ProviderBluprint {
+    rawData: User[]
+    colors: UsersByColorMap
 
-    constructor(data: App[]) {
+    constructor(data: User[]) {
         this.rawData = data
-        this.hosts = {}
+        this.colors = {}
 
-        this.traverseFromHostByApps(data)
+        this.traverseFromColorByUsers(data)
     }
 
-    traverseFromHostByApps(data: App[]): void {
-        data.forEach((app) => {
-            app.host.forEach((hostName) => {
-                this.addAppByHost(hostName, app)
+    traverseFromColorByUsers(data: User[]): void {
+        data.forEach((user) => {
+            user.colors.forEach((color) => {
+                this.addUserByColor(color, user)
             })
         })
     }
 
-    addAppByHost(hostName: HostName, app: App): void {
-        if (!this.hosts[hostName]) {
-            this.hosts[hostName] = { [app.apdex]: { [app.name]: app } }
-        } else if (!this.hosts[hostName][app.apdex]) {
-            this.hosts[hostName][app.apdex] = { [app.name]: app }
+    addUserByColor(color: Color, user: User): void {
+        if (!this.colors[color]) {
+            this.colors[color] = { [user.rank]: { [user.name]: user } }
+        } else if (!this.colors[color][user.rank]) {
+            this.colors[color][user.rank] = { [user.name]: user }
         }
-        this.hosts[hostName][app.apdex][app.name] = app
+        this.colors[color][user.rank][user.name] = user
     }
 
-    getTopAppsByHost(hostName: HostName, amount: number = 5): App[] {
-        const topApps = []
-        let highestApdex = 100
-        while (topApps.length < amount) {
-            for (let appName in this.hosts[hostName][highestApdex]) {
-                topApps.push(this.hosts[hostName][highestApdex][appName])
-                if (topApps.length === amount) break
+    getTopUsersByColor(color: Color, amount: number = 5): User[] {
+        const topUsers = []
+        let highestRank = 100
+        while (topUsers.length < amount) {
+            for (let colorName in this.colors[color][highestRank]) {
+                topUsers.push(this.colors[color][highestRank][colorName])
+                if (topUsers.length === amount) break
             }
-            --highestApdex
-            if (highestApdex === 0) break
+            --highestRank
+            if (highestRank === 0) break
         }
 
-        return topApps
+        return topUsers
     }
 
-    getTopApps(): AllHostsList[] {
-        return Object.keys(this.hosts).map((hostName) => [
-            hostName,
-            this.getTopAppsByHost(hostName),
+    getTopUsers(): AllColorsList[] {
+        return Object.keys(this.colors).map((colorsName) => [
+            colorsName,
+            this.getTopUsersByColor(colorsName),
         ])
     }
 
-    addAppToHosts(app: App): void {
-        app.host.forEach((hostName) => {
-            this.addAppByHost(hostName, app)
+    addUserToColors(user: User): void {
+        user.colors.forEach((colorName) => {
+            this.addUserByColor(colorName, user)
         })
     }
 
-    private removeAppFromHost(hostName: HostName, app: App): void {
-        delete this.hosts[hostName][app.apdex][app.name]
+    private removeUserFromColor(colorName: Color, user: User): void {
+        delete this.colors[colorName][user.rank][user.name]
 
-        if (!hasKeysLeft(this.hosts[hostName][app.apdex])) {
-            delete this.hosts[hostName][app.apdex]
+        if (!hasKeysLeft(this.colors[colorName][user.rank])) {
+            delete this.colors[colorName][user.rank]
 
-            if (!hasKeysLeft(this.hosts[hostName])) {
-                delete this.hosts[hostName]
+            if (!hasKeysLeft(this.colors[colorName])) {
+                delete this.colors[colorName]
             }
         }
     }
 
-    removeAppFromHosts(app: App): void {
-        app.host.forEach((hostName) => {
-            this.removeAppFromHost(hostName, app)
+    removeUserFromColors(user: User): void {
+        user.colors.forEach((colorName) => {
+            this.removeUserFromColor(colorName, user)
         })
     }
 }
 
-export default AppsByHost
+export default UsersByColor

@@ -1,8 +1,8 @@
-import { App } from '../types/index'
+import { User } from '../types/index'
 import CustomisedStructure from './customised-structure'
-import { getHostAppData } from '../service'
+import { getUserColorsData } from '../service'
 
-const data: App[] = await getHostAppData()
+const data: User[] = await getUserColorsData()
 
 const Provider = new CustomisedStructure(data)
 

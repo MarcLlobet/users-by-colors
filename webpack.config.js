@@ -1,7 +1,6 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -11,7 +10,7 @@ const stylesHandler = isProduction
     ? MiniCssExtractPlugin.loader
     : 'style-loader'
 
-const hostAppData = require('./host-app-data.json')
+const userColorsData = require('./user-colors-data.json')
 
 const config = {
     entry: './src/index.ts',
@@ -22,8 +21,8 @@ const config = {
         open: true,
         host: 'localhost',
         onBeforeSetupMiddleware: function (devServer) {
-            devServer.app.get('/host-app-data', function (req, res) {
-                res.json(hostAppData)
+            devServer.app.get('/user-colors-data', function (req, res) {
+                res.json(userColorsData)
             })
         },
     },

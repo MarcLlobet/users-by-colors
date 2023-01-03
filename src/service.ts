@@ -1,5 +1,5 @@
-export const getHostAppData = async () => {
-    const jsonHostAppData = await fetch('/host-app-data')
-    const hostAppData = await jsonHostAppData.json()
-    return hostAppData
+export const getUserColorsData = async () => {
+    const jsonUserColorsData = await fetch('/user-colors-data')
+    const userColorsData = await jsonUserColorsData.json()
+    return userColorsData
 }

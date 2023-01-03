@@ -1,17 +1,15 @@
-export type HostName = string
+export type Color = string
 
-export type App = {
-    apdex: number
+export type User = {
+    rank: number
     name: string
-    contributors?: string[]
-    host: HostName[]
-    version?: number
+    colors: Color[]
 }
 
-export type AllHostsList = [HostName, App[]]
+export type AllColorsList = [Color, User[]]
 
 export interface ProviderBluprint {
-    getTopApps(): AllHostsList[]
-    getTopAppsByHost(hostName: HostName, amount: number): App[]
-    removeAppFromHosts(app: App): void
+    getTopUsers(): AllColorsList[]
+    getTopUsersByColor(color: Color, amount: number): User[]
+    removeUserFromColors(user: User): void
 }

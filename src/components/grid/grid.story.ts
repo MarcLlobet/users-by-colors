@@ -1,29 +1,29 @@
 import { getGrid } from './index'
-import { AllHostsList } from '../../types'
+import { AllColorsList } from '../../types'
 const gridData = [
     [
-        'hostname1',
+        'color1',
         [
-            { name: 'app1', apdex: 1, host: ['hostname1'] },
-            { name: 'app2', apdex: 2, host: ['hostname1'] },
+            { name: 'user1', rank: 1, colors: ['color1'] },
+            { name: 'user2', rank: 2, colors: ['color1'] },
         ],
     ],
     [
-        'hostname2',
+        'color2',
         [
-            { name: 'app3', apdex: 3, host: ['hostname2'] },
-            { name: 'app4', apdex: 4, host: ['hostname2'] },
+            { name: 'user3', rank: 3, colors: ['color2'] },
+            { name: 'user4', rank: 4, colors: ['color2'] },
         ],
     ],
 ]
 
 const getGridAsGrid = () => {
-    const grid = getGrid(gridData as AllHostsList[])
+    const grid = getGrid(gridData as AllColorsList[])
     grid.classList.remove('grid--list')
     return grid
 }
 
 export const Grid = getGridAsGrid()
 
-const GridList = getGrid(gridData as AllHostsList[])
+const GridList = getGrid(gridData as AllColorsList[])
 export default GridList

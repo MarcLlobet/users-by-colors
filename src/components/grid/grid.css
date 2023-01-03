@@ -26,7 +26,7 @@
     color: var(--highlight-text-color);
 }
 
-.grid__list-apdex {
+.grid__list-rank {
     font-size: 13px;
     font-weight: bold;
     opacity: 0.62;

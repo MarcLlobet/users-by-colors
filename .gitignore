@@ -3,3 +3,11 @@ dist
 yarn-error.log
 
 design-system
+
+docs/
+
+*.zip
+
+data.json
+
+.DS_Store

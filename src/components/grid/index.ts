@@ -1,15 +1,15 @@
 import { getDOM } from '../../helpers/dom-helper'
 import { getCard } from '../card'
-import { App, AllHostsList } from '../../types'
+import { User, AllColorsList } from '../../types'
 import './grid.css'
 
-const getAppList = (apps: App[]) =>
-    apps.map((item) => {
-        const listApdex = getDOM({
+const getUserList = (users: User[]) =>
+    users.map((item) => {
+        const listRank = getDOM({
             element: 'span',
-            class: 'grid__list-apdex',
+            class: 'grid__list-rank',
         })
-        listApdex.innerHTML = `${item.apdex}`
+        listRank.innerHTML = `${item.rank}`
 
         const listName = getDOM({
             element: 'span',
@@ -20,7 +20,7 @@ const getAppList = (apps: App[]) =>
         const listItem = getDOM({
             element: 'div',
             class: 'grid__list-item',
-            children: [listApdex, listName],
+            children: [listRank, listName],
         })
 
         const itemClickHandle = () => {
@@ -32,15 +32,15 @@ const getAppList = (apps: App[]) =>
         return listItem
     })
 
-export const getGrid = (hostList: AllHostsList[]): HTMLElement => {
+export const getGrid = (hostList: AllColorsList[]): HTMLElement => {
     const grid = getDOM({ class: 'grid grid--list' })
 
-    hostList.forEach(([hostName, apps]: AllHostsList): void => {
-        const listItems = getAppList(apps)
+    hostList.forEach(([title, list]: AllColorsList): void => {
+        const content = getUserList(list)
 
         const card = getCard({
-            title: hostName,
-            content: listItems,
+            title,
+            content,
         })
 
         grid.appendChild(card)

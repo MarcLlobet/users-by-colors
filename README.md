@@ -1,5 +1,5 @@
-# Apps by hosts
-This is an application showing the top apps in the ranking by each host.
+# Users by colors
+This is an application showing the top users in the ranking by each color.
 
 ## TLDR;
 ### Check it out
@@ -13,7 +13,7 @@ This is an application showing the top apps in the ranking by each host.
  - Integration preview: `yarn cy:open`
 
 *Preview of the final result*
-![Apps by hosts preview](readme-images/apps-by-hosts-preview.gif)
+![Users by colors preview](readme-images/users-by-colors-preview.png)
 
 *Preview of the design system*
 ![Design system preview](readme-images/design-system-preview.gif)
@@ -28,70 +28,70 @@ I created a dark theme mode and an icon myself.
 Check the svg file, you will see it is quite understandable.
 
 ## Problem statement
-Given we receive apps with the following shape:
+Given we receive users with the following shape:
 ```ts
-Apps = {
+Users = {
     name: string
-    host: string[]
-    apdex: number
+    colors: string[]
+    rank: number
 }[]
 ```
-we need to show all hosts listing the n apps ordered by the highest apdex.
+we need to show all colors listing the n users ordered by the highest rank.
 
 ### Methods to satisfy
- - getTopAppsByHost
- - removeAppFromHosts
- - addAppToHosts
+ - getTopUsersByColor
+ - removeUserFromColors
+ - addUserToColors
 
 ## Solution
 ### Data structure
 
 ```ts
 DS = {
-    [hostName: string]: {
-        [apdex: number]: {
-            [appName: string]: App
+    [colorName: string]: {
+        [rank: number]: {
+            [userName: string]: User
         }
     }
 }
 ```
-Dictionary of hosts as keys and a dictionary as value.
+Dictionary of colors as keys and a dictionary as value.
 
-Inside, app apdex as keys and a dictionary as value.
+Inside, user rank as keys and a dictionary as value.
 
-Inside, app name as keys and the app as value.
+Inside, user name as keys and the user as value.
 
 Retrieveing an app looks like:
 ```js
-this.hosts[hostName][app.apdex][app.name]
+this.colors[colorName][user.rank][user.name]
 ```
 
-It can be seen as a tree of hosts with different layers:
+It can be seen as a tree of colors with different layers:
 
 ```
      o         - root
      |
-     o         - host names
+     o         - color names
     / \
-  o     o      - apdex number
+  o     o      - rank number
  / \   / \
-o   o o   o    - app name (with app as value)
+o   o o   o    - user name (with user as value)
 ```
 
 -   By using objects, the sorting is implicit
-    by assigning the apdex number and the app name
+    by assigning the rank number and the user name
 -   Most of our actions are constant time complexity O(1)
 -   Prevents collisioning
 
 ### Time complexity analysis
 
- - Traversing from 'apps with hosts' to 'hosts with apps' takes `O(n*h)`,
-where n is the number of apps and h is the amount of different hosts.
- - Sorting Apps: O(1) Implicit with object indexation
- - Inserting Apps: O(h) ≈ O(1) where h is the height of the tree (which it's 4)
- - Removing Apps: O(1)
- - Getting a concrete app: O(1)
- - Getting n apps by host: O(n\*h) where h are hosts and n is the number of apps
+ - Traversing from 'users with colors' to 'colors with users' takes `O(n*h)`,
+where n is the number of users and h is the amount of different colors.
+ - Sorting Users: O(1) Implicit with object indexation
+ - Inserting Users: O(h) ≈ O(1) where h is the height of the tree (which it's 4)
+ - Removing Users: O(1)
+ - Getting a concrete user: O(1)
+ - Getting n users by color: O(n\*c) where c are colors and n is the number of users
 
 ## Tech stack
 The idea is to use as less libraries as possible to deliver a performant and lightweight app.

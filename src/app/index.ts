@@ -1,14 +1,13 @@
 import './global'
-import { getDOM } from '../helpers/dom-helper'
 import { getGrid } from '../components/grid'
 import { getHeader } from '../components/header'
 import { getToggle } from '../components/toggle'
 import { getPageWrapper } from '../components/page-wrapper'
 import darkTheme from '../components/dark-theme'
-import { AllHostsList } from '../types'
+import { AllColorsList } from '../types'
 
-type getAppProps = {
-    allTopApps: AllHostsList[]
+type getUserProps = {
+    allTopUsers: AllColorsList[]
 }
 
 const SHOW_AS = {
@@ -22,11 +21,11 @@ const toggleLabels: [string, string] = [
     `${SHOW_AS.BASE} ${SHOW_AS.LIST}`,
 ]
 
-const title = 'Apps by Host'
-const author = 'by Marc Llobet'
+const title = 'Colorful'
+const author = 'users by colors'
 
-export const getApp = ({ allTopApps }: getAppProps): HTMLElement => {
-    const grid = getGrid(allTopApps)
+export const getUser = ({ allTopUsers }: getUserProps): HTMLElement => {
+    const grid = getGrid(allTopUsers)
 
     const onToggleHandle = (): void => {
         grid.classList.toggle('grid--list')

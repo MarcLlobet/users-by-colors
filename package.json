@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
-    "description": "Apps by hosts",
-    "name": "apps-by-hosts",
+    "description": "Users by colors",
+    "name": "users-by-colors",
     "scripts": {
         "build": "webpack --mode=production --node-env=production",
         "build:dev": "webpack --mode=development",
