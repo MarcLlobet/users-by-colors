@@ -21,8 +21,8 @@ const toggleLabels: [string, string] = [
     `${SHOW_AS.BASE} ${SHOW_AS.LIST}`,
 ]
 
-const title = 'Colorful'
-const author = 'users by colors'
+const title = 'Users by colors'
+const author = 'from colors by users'
 
 export const getUser = ({ allTopUsers }: getUserProps): HTMLElement => {
     const grid = getGrid(allTopUsers)

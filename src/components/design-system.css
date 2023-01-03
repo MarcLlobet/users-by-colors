@@ -14,7 +14,7 @@
     grid-area: menu;
     width: 100%;
     height: 80px;
-    background: #90197c;
+    background: #888;
     display: flex;
     justify-items: flex-end;
 }
@@ -51,7 +51,7 @@
 }
 .sidebar {
     grid-area: sidebar;
-    background: #90197c;
+    background: #888;
     padding: 20px;
     width: 200px;
     flex-shrink: 0;

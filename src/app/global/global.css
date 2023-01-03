@@ -1,7 +1,7 @@
 :root {
     /* COLORS */
     --black-color: black;
-    --paper-color: #f5f5f5;
+    --light-purple-color: #d0a5e4;
     --cadet-blue: #4a5a5a;
     --green-yellow: #7ed421;
     --light-grey: #eee;
@@ -10,10 +10,10 @@
     --black: black;
     --almost-black: #262628;
     --deep-sky-blue: #15b0ff;
-    --yellow: #e9e91d;
+    --yellow: #cec300;
 
     /* LIGHT THEME */
-    --background-color: var(--paper-color);
+    --background-color: var(--light-purple-color);
     --general-text-color: var(--black-color);
     --highlight-text-color: var(--cadet-blue);
     --highlight-items-color: var(--green-yellow);

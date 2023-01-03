@@ -13,7 +13,7 @@ This is an application showing the top users in the ranking by each color.
  - Integration preview: `yarn cy:open`
 
 *Preview of the final result*
-![Users by colors preview](readme-images/users-by-colors-preview.png)
+![Users by colors preview](readme-images/users-by-colors-preview.gif)
 
 *Preview of the design system*
 ![Design system preview](readme-images/design-system-preview.gif)

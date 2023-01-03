@@ -4,7 +4,7 @@
 }
 
 body.dark-mode {
-    --background-color: var(--black);
+    --background-color: var(--cadet-blue);
     --general-text-color: var(--deep-sky-blue);
     --highlight-text-color: var(--white);
     --highlight-items-color: var(--deep-sky-blue);
@@ -30,7 +30,8 @@ body.dark-mode {
 }
 
 .ui-toolkit {
-    width: 840px;
+    width: 100%;
+    max-width: 840px;
     justify-content: flex-end;
     display: flex;
     margin: auto;
