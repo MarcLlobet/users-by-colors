@@ -61,7 +61,7 @@ Inside, user rank as keys and a dictionary as value.
 
 Inside, user name as keys and the user as value.
 
-Retrieveing an app looks like:
+Retrieveing a user looks like:
 ```js
 this.colors[colorName][user.rank][user.name]
 ```
