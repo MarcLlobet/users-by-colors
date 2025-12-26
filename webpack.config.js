@@ -12,8 +12,6 @@ const stylesHandler = isProduction
     ? MiniCssExtractPlugin.loader
     : 'style-loader'
 
-const userColorsData = require('./user-colors-data.json')
-
 const config = {
     entry: './src/index.ts',
     output: {
@@ -22,11 +20,6 @@ const config = {
     devServer: {
         open: true,
         host: 'localhost',
-        onBeforeSetupMiddleware: function (devServer) {
-            devServer.app.get('/user-colors-data', function (req, res) {
-                res.json(userColorsData)
-            })
-        },
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -34,6 +27,11 @@ const config = {
         }),
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'user-colors-data.json', to: '.' },
+            ],
+        }),
     ],
     module: {
         rules: [
@@ -71,13 +69,6 @@ module.exports = () => {
     if (isProduction) {
         config.mode = 'production'
         config.plugins.push(new MiniCssExtractPlugin())
-        config.plugins.push(
-            new CopyWebpackPlugin({
-                patterns: [
-                    { from: 'user-colors-data.json', to: '.' },
-                ],
-            })
-        )
     } else {
         config.mode = 'development'
     }
